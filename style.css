@@ -1,0 +1,230 @@
+/* ==================================== */
+/* 1. GLOBAL STYLES & VARIABLES         */
+/* ==================================== */
+
+:root {
+    /* Palet Warna Baru (Lebih kalem & elegan) */
+    --primary-color: #383838;     /* Teks utama (Abu gelap) */
+    --accent-color: #B28F6B;      /* Aksen (Gold/Cokelat Muda Elegan) */
+    --background-color: #FDFDFD;  /* Background bersih */
+    --header-bg: #EAE6DF;         /* Background header (Beige lembut) */
+    --light-border: #E0E0E0;      /* Garis batas halus */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05); /* Shadow ringan */
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Mengganti Font untuk kesan modern (Asumsi font di-import) */
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1100px; /* Lebarkan sedikit area konten */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ==================================== */
+/* 2. HEADER (Text Based Design)        */
+/* ==================================== */
+
+.text-header {
+    /* Gunakan warna aksen sebagai background, dan warna header lama sebagai border bawah */
+    background-color: var(--accent-color); /* Ubah menjadi warna gold/cokelat */
+    padding: 90px 20px 70px; /* Padding lebih tebal */
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow yang lebih gelap */
+    border-bottom: 8px solid var(--header-bg); /* Beri garis bawah tebal */
+    /* Tambahkan animasi fade-in sederhana saat dimuat */
+    animation: headerFadeIn 1s ease-out; 
+}
+
+@keyframes headerFadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.text-header h1 {
+    font-family: 'Playfair Display', serif; 
+    margin: 0;
+    font-size: 7.5em; /* Judul JAUH lebih besar */
+    line-height: 0.9em;
+    font-weight: 900;
+    color: white; /* Warna teks Putih agar kontras dengan background cokelat */
+    letter-spacing: 0.15em; /* Spasi antar huruf lebih lebar */
+    text-transform: uppercase;
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2); /* Shadow yang lebih kuat */
+    margin-bottom: 30px;
+}
+
+.text-header .subtitle-block {
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 15px;
+    /* Hilangkan border, ganti dengan background transparan */
+    background-color: rgba(255, 255, 255, 0.15); 
+    border-radius: 8px;
+}
+
+.text-header .subtitle-block p {
+    margin: 5px 0;
+    font-size: 1.1em;
+    color: #FFF; /* Teks subtitle juga putih */
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.text-header .subtitle-block .lecturer {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--header-bg); /* Gunakan warna header lama (Beige) sebagai aksen pada nama dosen */
+}
+
+/* ==================================== */
+/* 3. CONTROLS (Search & Alphabet Filter) */
+/* ==================================== */
+
+/* ==================================== */
+/* 3. CONTROLS (Search & Alphabet Filter) */
+/* ==================================== */
+
+.filter-controls {
+    margin-bottom: 40px;
+    background-color: var(--background-color); /* Biarkan background putih bersih */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Shadow lebih dramatis */
+    /* Tambahkan efek 3D sedikit */
+    transform: translateY(-10px);
+    transition: all 0.5s ease;
+}
+
+#search-box {
+    width: 100%;
+    padding: 15px 20px; /* Perbesar padding */
+    font-size: 1.2em; /* Perbesar font */
+    border: 2px solid var(--light-border);
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    transition: all 0.3s;
+    font-weight: 400;
+}
+
+#search-box:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(178, 143, 107, 0.4); 
+    /* Tambahkan efek animasi saat fokus */
+    transform: scale(1.01);
+}
+
+#alphabet-filter {
+    gap: 6px;
+    justify-content: space-between; /* Rata kiri-kanan */
+    padding: 0 5px; 
+}
+
+.alphabet-btn {
+    padding: 8px 10px; /* Kecilkan padding lagi untuk menampung semua tombol */
+    border: 1px solid var(--light-border); 
+    background-color: white;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px; /* Bentuk kotak elegan */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transisi yang lebih halus */
+    min-width: 35px; /* Pastikan semua tombol memiliki lebar minimal */
+    text-align: center;
+}
+
+.alphabet-btn:hover {
+    background-color: var(--header-bg);
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+    transform: scale(1.05) translateY(-1px); /* Efek membesar lebih terasa */
+}
+
+.alphabet-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(178, 143, 107, 0.6);
+    font-size: 1.1em; /* Tombol aktif sedikit lebih besar */
+    transform: scale(1.1);
+}
+
+/* ==================================== */
+/* 4. TERMS LIST (Daftar Istilah)       */
+/* ==================================== */
+
+.terms-container {
+    gap: 15px;
+}
+
+.term-group h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 8px;
+    opacity: 0; /* Siap untuk animasi fade-in */
+    transform: translateY(20px);
+}
+
+.term-item {
+    background-color: white;
+    padding: 20px;
+    border-left: 6px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    opacity: 0; /* Siap untuk animasi fade-in */
+    transform: translateY(10px);
+}
+
+.term-item:hover {
+    transform: translateX(5px) scale(1.005); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.term-item h3 {
+    font-weight: 600;
+    font-size: 1.35em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.term-item p {
+    color: #777;
+    margin-bottom: 0;
+}
+
+/* Penambahan untuk animasi */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* ==================================== */
+/* 6. MEDIA QUERIES                     */
+/* ==================================== */
+
+@media (max-width: 768px) {
+    .text-header h1 {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-header h1 {
+        font-size: 3em; 
+    }
+    .text-header {
+        padding: 40px 10px;
+    }
+}
